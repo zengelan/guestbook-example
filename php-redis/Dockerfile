@@ -24,8 +24,13 @@ RUN pear install nrk/Predis
 RUN sed -i 's#ErrorLog /proc/self/fd/2#ErrorLog "|$/bin/cat 1>\&2"#' /etc/apache2/apache2.conf
 RUN sed -i 's#CustomLog /proc/self/fd/1 combined#CustomLog "|/bin/cat" combined#' /etc/apache2/apache2.conf
 RUN sed -i 's#Options Indexes FollowSymLinks.*#Options Indexes FollowSymLinks Includes#' /etc/apache2/apache2.conf
+RUN echo export INSTANCEID=$(curl --silent http://169.254.169.254/latest/meta-data/instance-id) >>/etc/environment
 
 ADD guestbook.php /var/www/html/guestbook.php
 ADD controllers.js /var/www/html/controllers.js
 ADD index.php /var/www/html/index.php
 ADD favicon.ico /var/www/html/favicon.ico
+
+#COPY run.sh /
+
+#CMD /run.sh

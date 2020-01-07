@@ -17,7 +17,7 @@ spec:
       containers:
       - name: php-redis
         image: zengelan/gb_frontend:latest
-        imagePullPolicy: Always
+        imagePullPolicy: Never
         resources:
           requests:
             cpu: 100m

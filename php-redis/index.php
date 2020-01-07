@@ -21,7 +21,7 @@
       </div>
     </div>
     </div>
-    <div>Local date: <!--#echo var="DATE_LOCAL" --></div>
-    <div>Web server running on: <?php print (getenv('HOSTNAME')); ?>></div>
+    <div>Web server running on pod: <?php print (getenv('HOSTNAME')); ?></div>
+    <div>Pod running on instance: <?php print (getenv('INSTANCEID')); ?></div>
   </body>
 </html>
