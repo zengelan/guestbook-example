@@ -22,6 +22,12 @@
     </div>
     </div>
     <div>Web server running on pod: <?php print (getenv('HOSTNAME')); ?></div>
-    <div>Pod running on instance: <?php print (getenv('INSTANCEID')); ?></div>
+    <?php
+        $instanceid = getenv('INSTANCEID');
+        if (empty($instanceid)){
+            $instanceid="<UNKNOWN>";
+        }
+    ?>
+    <div>Pod running on instance: <?php print ($instanceid); ?></div>
   </body>
 </html>

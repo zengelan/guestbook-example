@@ -30,7 +30,3 @@ ADD guestbook.php /var/www/html/guestbook.php
 ADD controllers.js /var/www/html/controllers.js
 ADD index.php /var/www/html/index.php
 ADD favicon.ico /var/www/html/favicon.ico
-
-#COPY run.sh /
-
-#CMD /run.sh
