@@ -20,7 +20,9 @@ if (isset($_GET['cmd']) === true) {
           'host'   => $host,
           'port'   => 6379,
         ]);
-        $client->set('ts/' . $now, $_GET['value']);
+        $hostname = getenv('HOSTNAME');;
+        $value = $hostname . ' saved: '.$_GET['value'];
+        $client->set('ts/' . $now, $value);
         print('{"message": "Added"}');
   } elseif ($_GET['cmd'] == 'getkeys') {
         $host = 'redis-slave';
@@ -50,7 +52,7 @@ if (isset($_GET['cmd']) === true) {
         arsort($keys);
         $messages = new stdClass();
         $messages->messages = array();
-        $messages->clienthost = $host;
+        $messages->host = getenv('HOSTNAME');
         foreach ($keys as $id => $key) {
             $value = $client->get($key);
             $messages->messages[] =$value;

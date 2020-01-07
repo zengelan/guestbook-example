@@ -21,5 +21,7 @@
       </div>
     </div>
     </div>
+    <div>Local date: <!--#echo var="DATE_LOCAL" --></div>
+    <div>Web server running on: <?php print (getenv('HOSTNAME')); ?>></div>
   </body>
 </html>
