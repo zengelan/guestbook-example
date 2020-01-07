@@ -24,7 +24,7 @@
     ?>
     <div>Pod running on instance: <code><?php print($instanceid); ?></code>
         <?php if (!empty($region)) { ?>
-            <a href="<?php print($aws_link); ?>"><?php print($aws_link); ?></a>
+            <a href="<?php print($aws_link); ?>" target="_blank"><?php print($aws_link); ?></a>
         <?php } ?>
     </div>
 </div>

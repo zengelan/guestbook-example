@@ -6,7 +6,7 @@ var redisApp = angular.module('redis', ['ui.bootstrap']);
 function RedisController() {}
 
 RedisController.prototype.onRedis = function() {
-    this.scope_.messages.push(this.scope_.msg);
+    this.scope_.messages.unshift(this.scope_.msg);
     var value = this.scope_.messages.join();
     //old
     this.http_.get("guestbook.php?cmd=set&key=messages&value=" + value)
@@ -19,6 +19,7 @@ RedisController.prototype.onRedis = function() {
                 this.scope_.redisResponse = "Added.";
             }));
     this.scope_.msg = "";
+    location.reload();
 };
 
 redisApp.controller('RedisCtrl', function ($scope, $http, $location) {
