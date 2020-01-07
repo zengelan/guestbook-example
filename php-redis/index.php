@@ -12,6 +12,7 @@
     <div>Web server running on pod: <code><?php print (getenv('HOSTNAME')); ?></code></div>
     <?php
         $instanceid = getenv('INSTANCEID');
+        #$instanceid = file_get_contents('http://169.254.169.254/latest/meta-data/instance-id');
         if (empty($instanceid)) {
             $instanceid = "&lt;UNKNOWN&gt;";
         }

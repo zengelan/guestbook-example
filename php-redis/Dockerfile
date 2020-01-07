@@ -30,3 +30,7 @@ ADD guestbook.php /var/www/html/guestbook.php
 ADD controllers.js /var/www/html/controllers.js
 ADD index.php /var/www/html/index.php
 ADD favicon.ico /var/www/html/favicon.ico
+ADD setinstanceid.sh /etc/init.d/setinstanceid.sh
+
+RUN chmod +x /etc/init.d/setinstanceid.sh
+RUN update-rc.d setinstanceid.sh start 99 2 3 4 5 .
