@@ -13,7 +13,7 @@
 # limitations under the License.
 
 TAG = v6
-REGISTRY = zengelan
+REGISTRY = registry-1.docker.io
 ARCH ?= $(shell go env GOARCH)
 ALL_ARCH = amd64 arm arm64 ppc64le s390x
 
