@@ -9,6 +9,14 @@
 <body ng-controller="RedisCtrl">
 <div style="width: 50%; margin-left: 20px">
     <h2>McAfee SE Summit 2020 Guestbook</h2>
+    <div>Web server running on pod: <code><?php print (getenv('HOSTNAME')); ?></code></div>
+    <?php
+        $instanceid = getenv('INSTANCEID');
+        if (empty($instanceid)) {
+            $instanceid = "&lt;UNKNOWN&gt;";
+        }
+    ?>
+    <div>Pod running on instance: <code><?php print($instanceid); ?></code></div>
     <form>
         <fieldset>
             <input ng-model="msg" placeholder="Messages" class="form-control" type="text" name="input"><br>
@@ -21,13 +29,5 @@
         </div>
     </div>
 </div>
-<div>Web server running on pod: <?php print (getenv('HOSTNAME')); ?></div>
-<?php
-    $instanceid = getenv('INSTANCEID');
-    if (empty($instanceid)) {
-        $instanceid = "&lt;UNKNOWN&gt;";
-    }
-?>
-<div>Pod running on instance: <?php print($instanceid); ?></div>
 </body>
 </html>
