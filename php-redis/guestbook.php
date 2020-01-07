@@ -34,6 +34,7 @@ if (isset($_GET['cmd']) === true) {
           'host'   => $host,
           'port'   => 6379,
         ]);
+        $keys = new stdClass();
         $keys->keys = $client->keys('ts/*');
         print("The keys variable :\n");
         print_r($keys);
